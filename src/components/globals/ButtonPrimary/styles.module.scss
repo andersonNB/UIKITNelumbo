@@ -1,0 +1,28 @@
+.custom-boton-primary {
+	background-color: #ffd300;
+	color: #0149be !important;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	width: 180px;
+	height: 50px;
+
+	&:hover {
+		background-color: #0149be !important;
+		color: #ffd300 !important;
+	}
+
+	&.width-large {
+		width: 300px;
+	}
+
+	&.button-drawer{
+		background-color: #ffff;
+		color: #0149be !important;
+		border: 1px solid #0149be;
+
+		&:hover{
+			background-color: #ffff !important;
+		}
+	}
+}

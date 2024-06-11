@@ -1,0 +1,63 @@
+$color-card: #000000;
+// linear-gradient($colorTop,$colorBottom);
+//* Primary Colors
+$macro-yellow: #FFDD00;
+$macro-blue: #0047BA;
+//*Complementarios
+$turquesa: #62CBC9;
+$melon: #F5B335;
+$pistache: #A2D46E;
+//*Primary colors lights (Tints)
+$macro-blue-light-30: #4D7ECF;
+$macro-blue-light-60: #99B5E3;
+$macro-blue-light-90: #E6EDF8;
+$macro-yellow-light-30: #FFE74D;
+$macro-yellow-light-60: #FFF199;
+$macro-yellow-light-90: #FFFCE6;
+//*Primary colors darks (Shades)
+$macro-blue-dark-30: #003282;
+$macro-blue-dark-60: #001C4A;
+$macro-blue-dark-90: #000713;
+$macro-yellow-dark-30: #B39B00;
+$macro-yellow-dark-60: #665800;
+$macro-yellow-dark-90: #191600;
+//*Grays
+$macro-gray-dark: #4D4D4D;
+$macro-gray-09: #1A202C;
+$macro-gray-07: #4B5468;
+$macro-gray-05: #A1ADC0;
+$macro-gray-02: #EDF2F7;
+$gray-2: #FAFAFA;
+$gray-3: #F5F5F5;
+$gray-4: #F0F0F0;
+$gray-5: #D9D9D9;
+$gray-6: #BFBFBF;
+$gray-7: #8C8C8C;
+$gray-8: #595959;
+$gray-9: #434343;
+$gray-10: #262626;
+$gray-11: #1F1F1F;
+$gray-12: #141414;
+//*Notifications/actions
+$macro-error: #FF4D4F;
+$macro-error-light: #FFCCC7;
+$macro-error-bg: #FFF1F0;
+$macro-success: #52C41A;
+$macro-success-light: #B7EB8F;
+$macro-success-bg: #F6FFED;
+$macro-warning: #FAAD14;
+$macro-warning-light: #FFE58F;
+$macro-warning-bg: #FFFBE6;
+$macro-info: #1890FF;
+$macro-info-light: #91D5FF;
+$macro-info-bg: #E6F7FF;
+//*Gradients
+$gradient-yellow-1: #F5B335;
+$gradient-yellow-2: #FFE800;
+// linear-gradient(180deg, gradient-yellow-1 0%, gradient-yellow-2 100%);
+$gradient-blue-1: #0047BA;
+$gradient-blue-2: #0061FF;
+// linear-gradient(180deg, gradient-blue-1 0%, gradient-blue-2 100%);
+$gradient-blue-dark-1: #0038AE;
+$gradient-blue-dark-2: #2474AF;
+// linear-gradient(180deg, gradient-blue-dark-1 0%, gradient-blue-dark-2 100%);

@@ -1,0 +1,21 @@
+.ant-btn,
+.ant-btn-default,
+.ant-btn-circle {
+	background-color: #0149be !important;
+	color: #ffd300 !important;
+	cursor: pointer;
+	width: fit-content;
+
+	&:hover {
+		background-color: #0149be;
+		color: #ffd300;
+		cursor: pointer;		
+	}
+
+	&.icon-drawer{
+		background-color: #FFFF !important;
+		color: #acacac !important;
+		border: none;
+
+	}
+}
