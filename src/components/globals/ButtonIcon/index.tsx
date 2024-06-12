@@ -5,11 +5,8 @@ import styles from './styles.module.scss';
 import clsx from 'clsx';
 
 
-interface TypeShape {
-    shape: "circle" | "round" | "default" | undefined;
-}
-
-const CustomButtonIcon = ({ text = '', shape, icon, iconDrawer, onClick }: { text?: String | undefined, shape: TypeShape, icon: ReactNode, iconDrawer: Boolean, onClick: () => void }) => {
+type ShapeType = "circle" | "round" | "default" | undefined;
+const CustomButtonIcon = ({ text = '', shape, icon, iconDrawer, onClick }: { text?: String | undefined, shape?: ShapeType, icon?: ReactNode, iconDrawer?: Boolean, onClick?: () => void }) => {
 
     const buttonClass = clsx(styles['ant-btn'], {
         [styles['icon-drawer']]: iconDrawer

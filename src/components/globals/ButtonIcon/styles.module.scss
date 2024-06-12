@@ -1,21 +1,23 @@
+@import '../../../styles/main.scss';
+
 .ant-btn,
 .ant-btn-default,
 .ant-btn-circle {
-	background-color: #0149be !important;
-	color: #ffd300 !important;
+	background-color: $macro-blue !important;
+	color: $macro-yellow !important;
 	cursor: pointer;
 	width: fit-content;
 
 	&:hover {
-		background-color: #0149be;
-		color: #ffd300;
+		background-color: $macro-blue;
+		color: $macro-yellow;
 		cursor: pointer;		
 	}
 
 	&.icon-drawer{
 		background-color: #FFFF !important;
-		color: #acacac !important;
+		color: $macro-gray-dark !important;
 		border: none;
-
+		box-shadow: none;
 	}
 }

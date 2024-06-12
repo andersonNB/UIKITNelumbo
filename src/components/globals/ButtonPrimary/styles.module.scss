@@ -1,6 +1,8 @@
+@import '../../../styles/main.scss';
+
 .custom-boton-primary {
-	background-color: #ffd300;
-	color: #0149be !important;
+	background-color: $macro-yellow;
+	color: $macro-blue !important;
 	border-radius: 10px;
 	cursor: pointer;
 	transition: background-color 0.3s;
@@ -8,8 +10,8 @@
 	height: 50px;
 
 	&:hover {
-		background-color: #0149be !important;
-		color: #ffd300 !important;
+		background-color: $macro-blue !important;
+		color: $macro-yellow !important;
 	}
 
 	&.width-large {
@@ -18,8 +20,8 @@
 
 	&.button-drawer{
 		background-color: #ffff;
-		color: #0149be !important;
-		border: 1px solid #0149be;
+		color: $macro-blue !important;
+		border: 1px solid $macro-blue;
 
 		&:hover{
 			background-color: #ffff !important;

@@ -12,6 +12,9 @@ import CustomDrawer from "@/components/globals/Drawer";
 import CustomCheckBox from "@/components/globals/CheckBox";
 import CustomSelect from "@/components/globals/Select";
 import { CustomTag } from "@/components/globals/Tag";
+import { BreadcrumbComponent } from "@/components/globals/Breadcrumb";
+import { CustomDragDrop } from "@/components/globals/Drag/Index";
+import iconUser from "@/assets/icons/icon_hero_users.svg";
 
 
 
@@ -84,12 +87,12 @@ const managementTickets = ['Crear', 'Modificar', 'Escarlar', 'Cerrar', 'Re abrir
 const managementFramework = ['Crear', 'Eliminar', 'Lectura']
 
 const optionSelect = [
-  { value: 'analista_jr', label: 'Analista Jr' },
-  { value: 'analista_jr', label: 'Analista Senior' },
-  { value: 'analista_jr', label: 'Analista Master' },
-  { value: 'analista_jr', label: 'Moderador' },
-  { value: 'analista_jr', label: 'Manejador BD' },
-  { value: 'analista_jr', label: 'Mesa de Ayuda' }
+  { value: '1', label: 'Analista Jr' },
+  { value: '2', label: 'Analista Senior' },
+  { value: '3', label: 'Analista Master' },
+  { value: '4', label: 'Moderador' },
+  { value: '5', label: 'Manejador BD' },
+  { value: '6', label: 'Mesa de Ayuda' }
 ]
 
 export default function Home() {
@@ -102,7 +105,7 @@ export default function Home() {
           <CustomButtonText text='Agregar' width={true} />
         </Col>
         <Col span={8}>
-          <CustomTable dataSource={dataSource} columns={columns} />
+          <CustomTable dataSource={dataSource} columns={columns} pagination={false} />
         </Col>
         <Col span={8}>
           <CustomInput />
@@ -113,10 +116,10 @@ export default function Home() {
           <CustomInputNumber suffix='segs' />
         </Col>
         <Col span={8} style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-          <CustomCard icon={<UserOutlined />} text='Usuarios' />
-          <CustomCard icon={<UnorderedListOutlined />} text='Roles y Permisología' />
+          <CustomCard icon={iconUser} text='Usuarios'  altIcon='Icono de usuario para las cards'/>
+          {/* <CustomCard icon={<UnorderedListOutlined />} text='Roles y Permisología' />
           <CustomCard icon={<DragOutlined />} text='Clasificaciones' />
-          <CustomCard icon={<DragOutlined />} text='Tipo' />
+          <CustomCard icon={<DragOutlined />} text='Tipo' /> */}
         </Col>
         <Col span={8}>
           <CustomDrawer title='Agregar Prioridad' children={<span>Por defecto, la nueva prioridad tendrá el menor peso de la lista de prioridades</span>} />
@@ -128,6 +131,31 @@ export default function Home() {
 
         <Col span={8}>
           <CustomSelect title='Perfil de usuario' optionSelect={optionSelect} />
+        </Col>
+
+        <Col span={8}>
+          <BreadcrumbComponent items={[
+            {
+              title: 'Home',
+              path:'/'
+            },
+            {
+              title: 'Application Center',
+              path:'/aplication-center'
+            },
+            {
+              title: 'Application List',
+              path:'/aplication-list'
+            },
+            {
+              title: 'An Application',
+              path:'/an-application'
+            },
+          ]} />
+        </Col>
+
+        <Col span={8}>
+        <CustomDragDrop />
         </Col>
       </Row>
     </main>
