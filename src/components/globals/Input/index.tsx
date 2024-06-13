@@ -1,16 +1,17 @@
 'use client'
 import React from 'react';
-import { Input, Tooltip } from 'antd';
-import styles from './styles.module.scss';
-import { SearchOutlined } from '@ant-design/icons';
 import { useTranslation } from 'react-i18next';
+import { Input, Tooltip } from 'antd';
+import Image from 'next/image';
+import styles from './styles.module.scss';
+import iconEdit from '@/assets/icons/icon_search.svg';
 
 const CustomInput = ({ onChange }: { onChange: () => void }) => {
 
     const {t} = useTranslation();
 
     return (
-        <Input placeholder="Buscar" className={styles['custom-input']} suffix={<Tooltip title={t('icons.search')}><SearchOutlined /></Tooltip>} />
+        <Input placeholder="Buscar" className={styles['custom-input']} suffix={<Tooltip title={t('icons.search')}><Image src={iconEdit} alt='Icon search input' /></Tooltip>} />
     )
 };
 

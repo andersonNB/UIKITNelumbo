@@ -15,16 +15,6 @@
 	gap: 11px;
 	align-items: center;
 
-	img {
-		width: 60px;
-		height: 60px;
-		filter: grayscale(1) contrast(1) brightness(1);
-		&:hover {
-			cursor: pointer;
-			filter: grayscale(0) contrast(1) brightness(1) hue-rotate(180deg);
-		}
-	}
-
 	&:hover {
 		cursor: pointer;
 		color: $macro-blue !important;

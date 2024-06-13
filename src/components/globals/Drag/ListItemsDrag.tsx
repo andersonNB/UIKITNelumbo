@@ -13,7 +13,7 @@ export const ListItemsDrag = ({ quotes }:{quotes:{content:String}[]}) => {
             {provided => (
               // console.log(provided),
               <div 
-              className={styles['container']}
+              className={styles['container-list']}
                 ref={provided.innerRef}
                 {...provided.draggableProps}
                 {...provided.dragHandleProps}
