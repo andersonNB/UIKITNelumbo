@@ -17,6 +17,7 @@ export const ListItemsDrag = ({ quotes }:{quotes:{content:String}[]}) => {
                 ref={provided.innerRef}
                 {...provided.draggableProps}
                 {...provided.dragHandleProps}
+                 style={{ ...provided.draggableProps.style, backgroundColor: quote.color }}
               >
                 {quote.content}
               </div>

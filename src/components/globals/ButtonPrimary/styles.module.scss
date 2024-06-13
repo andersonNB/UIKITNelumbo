@@ -9,7 +9,7 @@
 	width: 180px;
 	height: 50px;
 
-	&:hover {
+	&:not(:disabled):hover {
 		background-color: $macro-blue !important;
 		color: $macro-yellow !important;
 	}
@@ -18,13 +18,14 @@
 		width: 300px;
 	}
 
-	&.button-drawer{
+	&.button-drawer:not(:disabled) {
 		background-color: #ffff;
 		color: $macro-blue !important;
 		border: 1px solid $macro-blue;
 
-		&:hover{
-			background-color: #ffff !important;
+		&:hover {
+			background-color: $macro-blue !important;
+			color: $macro-yellow !important;
 		}
 	}
 }

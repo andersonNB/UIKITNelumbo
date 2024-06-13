@@ -20,6 +20,7 @@ import unOrderedList from "@/assets/icons/icon_ant_unordered_list_outlined.svg";
 import ArrowInside from "@/assets/icons/icon_carbon_router.svg";
 import iconEdit from "@/assets/icons/icon_edit.svg"
 import powerOn from "@/assets/icons/icon_powerOn.svg";
+import CustomModal from "@/components/user/Modal/Index";
 
 
 
@@ -162,6 +163,10 @@ export default function Home() {
 
         <Col span={24} style={{height:'auto'}}>
         <CustomDragDrop />
+        </Col>
+
+        <Col span={8}>
+         <CustomModal />
         </Col>
       </Row>
     </main>

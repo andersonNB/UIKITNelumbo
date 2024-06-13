@@ -44,14 +44,14 @@ const ColorPicker = ({ onChange, newColor, setFinalColorSon }) => {
     return (
         <div className={styles['color-picker-container']}>
             <div className={styles['color-picker-bar']}>
-                <input
+                {/* <input
                     type="range"
                     min="0"
                     max="100"
                     value={newColor}
                     className={styles['color-range']}
                     onChange={onChange}
-                />
+                /> */}
             </div>
             <input
                 type="text"

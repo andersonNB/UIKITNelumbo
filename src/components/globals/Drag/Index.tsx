@@ -21,11 +21,23 @@ const QuoteList = React.memo(function QuoteList({ quotes }) {
 
 export function CustomDragDrop() {
 
+
+    const getColor = (index) => {
+        const colors = [
+            '#FF0000', // Red
+            '#FFA500', // Orange
+            '#FFDD00', // Yellow
+            '#00FF00', // Green
+            '#00FFFF'  // Cyan
+        ];
+        return colors[index % colors.length];
+    };
     const [finalColorSon, setFinalColorSon] = useState();
     const initial = ['Crítico', 'Alta', 'Media', 'Baja', 'Ejemplo',].map((content, index) => {
         const custom = {
             id: `id-${index}`,
-            content: <ItemDrag content={content} />
+            content: <ItemDrag content={content} />,
+            color: getColor(index),
         };
         return custom;
     });
@@ -48,9 +60,14 @@ export function CustomDragDrop() {
             result.source.index,
             result.destination.index
         );
-        setState({ quotes });
-        // 1.Setearle el color a la card que corresponda, dependiendo de donde la 
-        // situen en el colorpicker
+
+
+        const updatedQuotes = quotes.map((quote, index) => ({
+            ...quote,
+            color: getColor(index) // Update color based on new index
+        }));
+
+        setState({ quotes: updatedQuotes });
     }
 
     function handleColorChange(valueColor) {
@@ -58,19 +75,20 @@ export function CustomDragDrop() {
         setNewColor(Number(valueColor.target.value));
     }
 
+    // console.log({state});
     return (
         <DragDropContext onDragEnd={onDragEnd}>
             <Droppable droppableId="list">
                 {provided => (
-                        <div 
+                    <div
                         className={styles['main-container']}
-                        ref={provided.innerRef} 
-                        {...provided.droppableProps} 
-                        style={{ backgroundColor: finalColorSon, height:'auto' }}>
-                            <ColorPicker onChange={handleColorChange} newColor={newColor} setFinalColorSon={setFinalColorSon} />
-                            <QuoteList quotes={state.quotes} />
-                            {provided.placeholder}
-                        </div>
+                        ref={provided.innerRef}
+                        {...provided.droppableProps}
+                        style={{  height: '280px !important', background:'#ccc' }}>
+                        <ColorPicker onChange={handleColorChange} newColor={newColor} setFinalColorSon={setFinalColorSon} />
+                        <QuoteList quotes={state.quotes} />
+                        {provided.placeholder}
+                    </div>
                 )}
             </Droppable>
         </DragDropContext>

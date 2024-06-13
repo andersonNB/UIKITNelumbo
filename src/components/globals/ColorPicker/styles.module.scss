@@ -6,17 +6,16 @@
 	align-items: center;
 	background-color: darkseagreen;
 	flex-direction: row-reverse;
-	// transform: rotate(90deg);
     height:auto;
     justify-content: flex-start;
-    // width: 100%;
 }
 
 .color-picker-bar {
-	width: 30px;
-	height: 20px;
-	background: linear-gradient(to right, $macro-error, $macro-warning, $macro-yellow, $macro-low-priority, $macro-low-priority-light);
+	width: 10px;
+	height: 100%;
+	background: linear-gradient(to bottom, $macro-error, $macro-warning, $macro-yellow, $macro-low-priority, $macro-low-priority-light);
 	position: relative;
+	border-radius: 20px;
 }
 
 .color-range {
