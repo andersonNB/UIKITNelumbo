@@ -53,13 +53,6 @@ const ColorPicker = ({ onChange, newColor, setFinalColorSon }) => {
                     onChange={onChange}
                 /> */}
             </div>
-            <input
-                type="text"
-                value={color}
-                readOnly
-                className={styles['color-value']}
-                style={{ backgroundColor: color, color: newColor > 50 ? '#000' : '#fff' }}
-            />
         </div>
     );
 };

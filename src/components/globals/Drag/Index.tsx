@@ -22,22 +22,31 @@ const QuoteList = React.memo(function QuoteList({ quotes }) {
 export function CustomDragDrop() {
 
 
-    const getColor = (index) => {
-        const colors = [
-            '#FF0000', // Red
-            '#FFA500', // Orange
-            '#FFDD00', // Yellow
-            '#00FF00', // Green
-            '#00FFFF'  // Cyan
-        ];
-        return colors[index % colors.length];
-    };
+    // const getColor = (index) => {
+    //     const colors = [
+    //         '#FF0000', // Red
+    //         '#FFA500', // Orange
+    //         '#FFDD00', // Yellow
+    //         '#00FF00', // Green
+    //         '#00FFFF'  // Cyan
+    //     ];
+    //     return colors[index % colors.length];
+    // };
+
+    const colors = [
+        '#FF0000', // Red
+        '#FFA500', // Orange
+        '#FFDD00', // Yellow
+        '#00FF00', // Green
+        '#00FFFF'  // Cyan
+    ];
     const [finalColorSon, setFinalColorSon] = useState();
-    const initial = ['Crítico', 'Alta', 'Media', 'Baja', 'Ejemplo',].map((content, index) => {
+    const initial = ['Crítico', 'Alta', 'Media', 'Baja', 'Ejemplo','Ejemplo 2'].map((content, index) => {
+        console.log(content, colors[index % colors.length], index % colors.length, index, colors.length)
         const custom = {
             id: `id-${index}`,
             content: <ItemDrag content={content} />,
-            color: getColor(index),
+            color: colors[index % colors.length],
         };
         return custom;
     });
@@ -64,7 +73,7 @@ export function CustomDragDrop() {
 
         const updatedQuotes = quotes.map((quote, index) => ({
             ...quote,
-            color: getColor(index) // Update color based on new index
+            color: colors[index % colors.length] // Update color based on new index
         }));
 
         setState({ quotes: updatedQuotes });
@@ -84,7 +93,7 @@ export function CustomDragDrop() {
                         className={styles['main-container']}
                         ref={provided.innerRef}
                         {...provided.droppableProps}
-                        style={{  height: '280px !important', background:'#ccc' }}>
+                        style={{  height: 'auto !important', background:'#ccc' }}>
                         <ColorPicker onChange={handleColorChange} newColor={newColor} setFinalColorSon={setFinalColorSon} />
                         <QuoteList quotes={state.quotes} />
                         {provided.placeholder}
