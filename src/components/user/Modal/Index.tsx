@@ -38,6 +38,7 @@ const CustomModal: React.FC = () => {
         styles={propsStyleModal}
         width={400}
         onCancel={handleCancel}
+        centered={true}
       >
         <Row gutter={[9, 30]}>
           <Col span={24}>
