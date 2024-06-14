@@ -11,29 +11,18 @@ const reorder = (list, startIndex, endIndex) => {
     return result;
 };
 
-const QuoteList = React.memo(function QuoteList({ quotes }) {
-    return <ListItemsDrag quotes={quotes} />;
-});
-
 export function CustomDragDrop() {
-    const colors = [
-        '#FF0000', // Red
-        '#FFA500', // Orange
-        '#FFDD00', // Yellow
-        '#00FF00', // Green
-        '#00FFFF'  // Cyan
-    ];
-
     const initial = ['Crítico', 'Alta', 'Media', 'Baja', 'Ejemplo'].map((content, index) => {
         const custom = {
             id: `id-${index}`,
             content: content,
-            color: colors[index % colors.length] // Assign initial color based on the position
+            color: getColorFromIndex(index, 5) // Assign initial color based on the position and total items
         };
         return custom;
     });
 
     const [state, setState] = useState({ quotes: initial });
+    const [showColor, setShowColor] = useState(false);
 
     function onDragEnd(result) {
         if (!result.destination) {
@@ -52,38 +41,38 @@ export function CustomDragDrop() {
 
         const updatedQuotes = quotes.map((quote, index) => ({
             ...quote,
-            color: getColorFromIndex(index) // Update color based on new index
+            color: getColorFromIndex(index, quotes.length)
         }));
 
         setState({ quotes: updatedQuotes });
     }
 
     function addItem() {
-        console.log(state.quotes.length)
         const newItem = {
             id: `id-${state.quotes.length}`,
             content: `Nuevo Item ${state.quotes.length + 1}`,
-            color: getColorFromIndex(state.quotes.length) // Assign color based on new index
         };
 
-        const updatedQuotes = [...state.quotes, newItem];
+        const updatedQuotes = [...state.quotes, newItem].map((quote, index) => ({
+            ...quote,
+            color: getColorFromIndex(index, state.quotes.length + 1) // Assign color based on new index and total items
+        }));
+
         setState({ quotes: updatedQuotes });
     }
 
     function getColorFromIndex(index, totalItems) {
-        // const value = (index / (state.quotes.length - 1)) * 100;
-        const value = Math.min(100, Math.max(0, (index / (state.quotes.length - 1)) * 100));
-        console.log({value})
+        const value = Math.min(100, Math.max(0, (index / (totalItems - 1)) * 100));
         return getColorFromValue(value);
     }
 
     function getColorFromValue(value) {
         const gradientColors = [
-            { stop: 0, color: '#FF0000' },
-            { stop: 25, color: '#FFA500' },
+            { stop: 0, color: '#FF4D4F' },
+            { stop: 25, color: '#FAAD14' },
             { stop: 50, color: '#FFDD00' },
-            { stop: 75, color: '#00FF00' },
-            { stop: 100, color: '#00FFFF' },
+            { stop: 75, color: '#31C462' },
+            { stop: 100, color: '#75DBBC' },
         ];
 
         let color = '';
@@ -110,9 +99,20 @@ export function CustomDragDrop() {
         return `#${result}`;
     }
 
+
+    const QuoteList = React.memo(function QuoteList({ quotes, showColor }) {
+        return <ListItemsDrag quotes={quotes} showColor={showColor} />;
+    });
+
+
+    const onSetColorClick = () => {
+        setShowColor(!showColor);
+    }
+
     return (
         <div>
             <button onClick={addItem}>Agregar Item</button>
+            <button onClick={onSetColorClick}>Setear Color</button>
             <DragDropContext onDragEnd={onDragEnd}>
                 <Droppable droppableId="list">
                     {provided => (
@@ -122,8 +122,8 @@ export function CustomDragDrop() {
                             {...provided.droppableProps}
                             style={{ height: 'auto !important' }}
                         >
-                            <ColorPicker onChange={() => {}} newColor={0} setFinalColorSon={() => {}} />
-                            <QuoteList quotes={state.quotes} />
+                            <ColorPicker />
+                            <QuoteList quotes={state.quotes} showColor={showColor} />
                             {provided.placeholder}
                         </div>
                     )}

@@ -1,36 +1,54 @@
 @import '../../../styles/main.scss';
 
-
-
 .main-container {
-    display: flex;
-    flex-direction: row;
-    height: 230px !important;
-    width: min-content;
+	display: flex;
+	flex-direction: row;
+	height: 230px !important;
+	width: min-content;
 }
-
 
 .container-list {
-    display: flex;
+	display: flex;
+	align-items: center;
 	border-radius: 5px;
+	border: 1px solid $gray-4;
+	box-shadow: 0px 3px 6px #00000029;
+	height: 46px;
 	margin-bottom: 10px;
-	width: 400px;
-    border: 1px solid $gray-4;
-    height: 46px;
-    flex-direction:column;
+	width: 242px;
+
+	&:hover {
+		box-shadow: 0px 5px 8px #00000029;
+		cursor: pointer;
+	}
 }
 
-.item{
-    display: flex;
-    align-items: center;
-    // background-color: #FFFFFF;
-    flex-direction: row;
-    height: 100%;
-    width: 100%;
+.item {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	height: 100%;
+	width: 100%;
 
-
-    &:hover{
-        box-shadow: 0px 3px 6px #00000029;
-    }
+	&:hover {
+		box-shadow: 0px 3px 6px #00000029;
+	}
 }
 
+// .macro-error {
+// 	background-color: $macro-error;
+// }
+
+// .macro-warning {
+// 	background-color: $macro-warning;
+// }
+
+// .macro-yellow {
+// 	background-color: $macro-yellow;
+// }
+// .macro-low-priority {
+// 	background-color: $macro-low-priority;
+// }
+// .macro-low-priority-light {
+// 	background-color: $macro-low-priority-light;
+// }
