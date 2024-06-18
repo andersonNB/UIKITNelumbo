@@ -21,6 +21,14 @@
 	}
 }
 
+.icon {
+	transition: fill 0.3s ease;
+
+	&:hover {
+		fill: $macro-blue !important;
+	}
+}
+
 .text {
 	font-size: 20px;
 }
